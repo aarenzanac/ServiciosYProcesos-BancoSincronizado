@@ -48,14 +48,17 @@ public class CuentaCorriente{
 	public synchronized void reintegrar(double cantidad, CuentaCorriente cuenta, boolean haySaldo ) {
 		if(!haySaldo) {
 			System.out.println("Pido " + cantidad + " € y hay sólo " + cuenta.getSaldo() + " €.\n");
-			System.out.println("Proceso Dormido hasta que haya saldo.\n");
+			System.out.println("Hilo Dormido hasta que haya saldo.\n");
 			System.out.println("-----------------------------\n");
 			try {
 				wait();
+								
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			System.out.println("Despierto hilo de cantidad: " + cantidad + "\n");
+			
 		}else {
 
 			System.out.println("Reintegro de: " + Math.abs(cantidad) + " €.\n");

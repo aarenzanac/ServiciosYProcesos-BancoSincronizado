@@ -33,7 +33,7 @@ public class BancoSincronizado {
 		for (int i = 0; i < cantidadOperaciones; i++){
             OperacionesBanco ob = new OperacionesBanco(arrayOperaciones[i], cuenta);
             ob.start();
-            ob.sleep(5000);
+            ob.sleep(2000);
                         
         }
 		System.out.println("Fin de las operaciones.\n");
