@@ -6,6 +6,7 @@ import pideDatos.PideDatos;
 public class BancoSincronizado {
 
 	public static void main(String[] args) throws InterruptedException {
+		
 		//CREO LA CUENTA CORRIENTE
 		CuentaCorriente cuenta = new CuentaCorriente("Alejandro Arenzana", "0081-0343-12-1234567890", 10.00);
 		System.out.println(cuenta.toString() + "\n");
@@ -31,10 +32,10 @@ public class BancoSincronizado {
 		//CREACIÓN DE TANTOS PROCESOS COMO OPERACIONES HAY EN EL LISTADO		
 		for (int i = 0; i < cantidadOperaciones; i++){
             OperacionesBanco ob = new OperacionesBanco(arrayOperaciones[i], cuenta);
-           	ob.start();
-           	ob.join();
+            ob.start();
+            ob.sleep(5000);
+                        
         }
-		
+		System.out.println("Fin de las operaciones.\n");
 	}
-	
 }
